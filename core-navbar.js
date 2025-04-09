@@ -1,13 +1,4 @@
-// ==UserScript==
-// @name         SO Breadcrumb Navigation
-// @version      0.6
-// @match        http://127.0.0.1:8000/*/so/*
-// @match        https://*.saasoptics.com/*/so/*
-// @match        https://*.platform.maxio.com/*/so/*
-// @match        *.saasoptics.test/*/so/*
-// @author       Luke
-// @author       Claude
-// ==/UserScript==
+// a userscript by luke (and claude realistically)
 
 (function () {
   'use strict';
