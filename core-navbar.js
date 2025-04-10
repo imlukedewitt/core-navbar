@@ -4,7 +4,9 @@
   'use strict';
 
   const navStructure = {
-    'accounts': 'accounts/',
+    'accounts': {
+      'create': 'create/',
+    },
     'admin': {
       'settings': {
         'update': 'update/',
