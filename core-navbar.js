@@ -15,6 +15,24 @@
     'chargify': {
       'settings': {
         'update': 'update/',
+        'sync_steps': {
+          'generate_evergreen_transactions': 'generate_evergreen_transactions/update/',
+          'get_components': 'get_components/update/',
+          'get_credit_notes': 'get_credit_notes/update/',
+          'get_customers': 'get_customers/update/',
+          'get_email_events': 'get_email_events/update/',
+          'get_invoices': 'get_invoices/update/',
+          'get_payments': 'get_payments/update/',
+          'get_products': 'get_products/update/',
+          'get_refunds': 'get_refunds/update/',
+          'get_reissued_invoices': 'get_reissued_invoices/update/',
+          'get_subscriptions': 'get_subscriptions/update/',
+          'get_voided_invoices': 'get_voided_invoices/update/',
+          'send_credit_applications': 'send_credit_applications/update/',
+          'send_customer_updates': 'send_customer_updates/update/',
+          'send_customers': 'send_customers/update/',
+          'send_payments': 'send_payments/update/',
+        }
       }
     },
     'contracts': {
