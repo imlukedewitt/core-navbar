@@ -64,27 +64,18 @@
         'update': 'update/'
       }
     },
-    'items': {
-      'home': 'home/',
-      'create': 'create/',
-      ':id': {
-        'clone': 'clone/',
-        'update': 'update/',
-        'delete': 'delete/',
-        'recast mrr': 'recast_mrr/'
-      }
-    },
-    'ilis': {
-      'list': '',
-      ':id': {
-        'update': 'update/',
-        'delete': 'delete/',
-        'associate_with_transaction': 'associate_with_transaction/',
-      }
-    },
     'invoices': {
       'full preview': 'full/',
       'home': 'home/',
+      'invoice line items': {
+        '_path': '../ilis',
+        'list': 'view/unfiltered',
+        ':id': {
+          'update': 'update/',
+          'delete': 'delete/',
+          'associate_with_transaction': 'associate_with_transaction/',
+        }
+      },
       'view': 'view/unfiltered',
       ':id': {
         'update': 'build/',
@@ -93,6 +84,23 @@
         'void': 'void/',
         'delete': 'delete/'
       }
+    },
+    'lists': {
+      'bulk update results': '../bulk_update_results/',
+      'custom fields': '../dynamic_field_labels/',
+      'export results': '../export_results/',
+      'items': {
+        '_path': '../items',
+        'home': 'home/',
+        'create': 'create/',
+        ':id': {
+          'clone': 'clone/',
+          'update': 'update/',
+          'delete': 'delete/',
+          'recast mrr': 'recast_mrr/'
+        }
+      },
+      'registers': '../registers/',
     },
     'transactions': {
       'home': 'home/',
@@ -150,7 +158,15 @@
     accumulatedPath += part + '/';
     const isLast = index === parts.length - 1;
     const currentNav = getNavOptions(parts.slice(0, index + 1));
-    const displayName = part.replace(/-/g, ' ');
+    let displayName = part.replace(/-/g, ' ');
+    const parentNav = index > 0 ? getNavOptions(parts.slice(0, index)) : navStructure;
+    if (parentNav) {
+      const foundKey = Object.keys(parentNav).find(key => {
+        const val = parentNav[key];
+        return (typeof val === 'object' && val._path === part) || key === part;
+      });
+      if (foundKey) displayName = foundKey.replace(/-/g, ' ');
+    }
 
     // Check if current part is an ID (numeric)
     const isID = /^\d+$/.test(part);
@@ -197,12 +213,15 @@
       return `<a href="${basePath}">${title}</a>`;
     }
 
-    const items = Object.entries(options).map(([key, value]) => {
+    const items = Object.entries(options).filter(([key]) => key !== '_path').map(([key, value]) => {
       let path;
+      const usePath = typeof value === 'object' && value._path !== undefined;
+      const pathKey = usePath ? value._path : key;
+
       if (typeof value === 'string') {
         path = basePath + value.replace(/:id/g, context[key] || '');
       } else {
-        path = basePath + key.replace(/:id/g, context[key] || '') + '/';
+        path = basePath + pathKey.replace(/:id/g, context[key] || '') + '/';
       }
 
       Object.entries(context).forEach(([resource, id]) => {
@@ -237,15 +256,18 @@
     return pathParts.reduce((currentLevel, part) => {
       if (!currentLevel || typeof currentLevel !== 'object') return null;
 
-      // Check for exact match first
-      if (currentLevel[part]) {
-        return currentLevel[part];
-      }
+      // Check for _path match first
+      const pathMatchKey = Object.keys(currentLevel).find(key => {
+        const val = currentLevel[key];
+        return typeof val === 'object' && val._path === part;
+      });
+      if (pathMatchKey) return currentLevel[pathMatchKey];
 
-      // Check for ID placeholder
-      if (currentLevel[':id'] && /^\d+$/.test(part)) {
-        return currentLevel[':id'];
-      }
+      // Then check exact match
+      if (currentLevel[part]) return currentLevel[part];
+
+      // Then check ID placeholder
+      if (currentLevel[':id'] && /^\d+$/.test(part)) return currentLevel[':id'];
 
       return null;
     }, navStructure);
