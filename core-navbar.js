@@ -34,7 +34,11 @@
           'send_payments': 'send_payments/update/',
         }
       },
-      'subscriptions': 'subscriptions/',
+      'subscriptions': {
+        ':id': {
+          'update': 'update/',
+        }
+      }
     },
     'contracts': {
       'list': 'view/unfiltered',
