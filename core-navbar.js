@@ -35,6 +35,7 @@
         }
       },
       'subscriptions': {
+        'list': 'view/unfiltered',
         ':id': {
           'update': 'update/',
         }
