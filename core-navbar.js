@@ -15,7 +15,6 @@
     'chargify': {
       'settings': {
         'update': 'update/',
-        'subscriptions': 'subscriptions/',
         'sync_steps': {
           'generate_evergreen_transactions': 'generate_evergreen_transactions/update/',
           'get_components': 'get_components/update/',
@@ -34,7 +33,8 @@
           'send_customers': 'send_customers/update/',
           'send_payments': 'send_payments/update/',
         }
-      }
+      },
+      'subscriptions': 'subscriptions/',
     },
     'contracts': {
       'list': 'view/unfiltered',
