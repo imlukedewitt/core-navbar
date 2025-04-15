@@ -86,11 +86,13 @@
       }
     },
     'lists': {
-      'bulk update results': '../bulk_update_results/',
-      'custom fields': '../dynamic_field_labels/',
-      'export results': '../export_results/',
+      '_path': '../so',
+      'bulk update results': 'bulk_update_results/',
+      'custom fields': 'dynamic_field_labels/',
+      'deposits': 'payments/deposits/view/unfiltered/',
+      'export results': 'export_results/',
       'items': {
-        '_path': '../items',
+        '_path': 'items',
         'home': 'home/',
         'create': 'create/',
         ':id': {
@@ -100,7 +102,8 @@
           'recast mrr': 'recast_mrr/'
         }
       },
-      'registers': '../registers/',
+      'payments': 'payments/list/',
+      'registers': 'registers/',
     },
     'transactions': {
       'home': 'home/',
