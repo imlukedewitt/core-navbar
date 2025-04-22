@@ -8,9 +8,12 @@
       'create': 'create/',
     },
     'admin': {
+      'backups': '../backups/',
+      'feature flags': 'feature_flags/',
       'settings': {
         'update': 'update/',
-      }
+      },
+      'view log files': 'logs/',
     },
     'chargify': {
       'settings': {
@@ -64,6 +67,17 @@
         'update': 'update/'
       }
     },
+    'import': {
+      'create': 'select_file/insert/',
+      'create and update': 'select_file/insert_update/',
+      'update': 'select_file/update/',
+      'delete': 'select_file/delete/',
+      'item groups': 'metrics/add/upload/',
+      'manage maps': 'maps/',
+      'renumber': 'select_file/renumber/',
+      'rename items': 'items/rename/upload/',
+      'results': 'result_list/',
+    },
     'invoices': {
       'full preview': 'full/',
       'home': 'home/',
@@ -104,6 +118,36 @@
       },
       'payments': 'payments/list/',
       'registers': 'registers/',
+    },
+    'netsuite': {
+      'settings': {
+        'update': 'update/',
+        'sync_steps': {
+          'get accounts': 'get_accounts/update/',
+          'get currencies': 'get_currencies/update/',
+          'get customers': 'get_customers/update/',
+          'get invoices': 'get_invoices/update/',
+          'get items': 'get_items/update/',
+          'get legacy tax schedules': 'get_tax_schedules/update/',
+          'get payment methods': 'get_payment_methods/update/',
+          'get payment terms': 'get_payment_terms/update/',
+          'get payments': 'get_payments/update/',
+          'get refunds': 'get_refunds/update/',
+          'send credit memos': 'send_credit_memos/update/',
+          'send credit memos': 'send_credit_memos/update/',
+          'send custom updates': 'send_customer_updates/update/',
+          'send customers': 'send_customers/update/',
+          'send deposits': 'send_deposits/update/',
+          'send invoices': 'send_invoices/update/',
+          'send invoices': 'send_invoices/update/',
+          'send items': 'send_items/update/',
+          'send payment updates': 'send_payment_updates/update/',
+          'send payments': 'send_payments/update/',
+          'send payments': 'send_payments/update/',
+          'send refunds': 'send_refunds/update/',
+          'send refunds': 'send_refunds/update/',
+        }
+      },
     },
     'transactions': {
       'home': 'home/',
