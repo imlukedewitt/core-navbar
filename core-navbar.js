@@ -125,6 +125,7 @@
         'get steps': {
           '_path': '../settings',
           'get accounts': 'sync_steps/get_accounts/update/',
+          'get credit memos': 'read_mapping/get_credit_memos/update/',
           'get currencies': 'sync_steps/get_currencies/update/',
           'get customers': 'read_mapping/get_customers/update/',
           'get invoices': 'read_mapping/get_invoices/update/',
