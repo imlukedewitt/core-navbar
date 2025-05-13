@@ -109,6 +109,7 @@
         '_path': 'items',
         'home': 'home/',
         'create': 'create/',
+        'needs maxio profile': 'view/unfiltered/?needs_so_profile=1',
         ':id': {
           'clone': 'clone/',
           'update': 'update/',
