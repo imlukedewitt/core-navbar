@@ -8,6 +8,11 @@
       'create': 'create/',
     },
     'admin': {
+      'api': {
+        '_path': '../../api',
+        'docs': 'v1.0/docs/',
+        'tokens': 'tokens/',
+      },
       'backups': '../backups/',
       'feature flags': 'feature_flags/',
       'settings': {
